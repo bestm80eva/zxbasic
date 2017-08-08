@@ -61,8 +61,8 @@ class TranslatorVisitor(NodeVisitor):
     # Current Token
     CURR_TOKEN = None
 
-    # Defined LOOPS
-    LOOPS = []
+    def __init__(self):
+        self.LOOPS = []  # Defined LOOPS
 
     @property
     def O_LEVEL(self):
@@ -1396,6 +1396,7 @@ class FunctionTranslator(Translator):
     def __init__(self, function_list):
         if function_list is None:
             function_list = []
+        super(FunctionTranslator, self).__init__()
 
         assert isinstance(function_list, list)
         for x in function_list:
